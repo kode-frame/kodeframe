@@ -1,6 +1,5 @@
 "use client";
 
-import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 import { CONTACT_LIST } from "@/constants/contact";
 import { BOTTOM_LINK, FOOTER_LINK, FOOTER_SECTION, SOCIAL_ICON } from "./constant";
