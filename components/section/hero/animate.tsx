@@ -33,7 +33,7 @@ export function AnimatedLines({
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 6 + i * 2,
+            duration: 4 + i * 2,
             repeat: Infinity,
             delay: i * 0.4,
             ease: "linear",
@@ -52,7 +52,7 @@ export function AnimatedLines({
             opacity: [0, 0.8, 0],
           }}
           transition={{
-            duration: 8 + i * 3,
+            duration: 6 + i * 3,
             repeat: Infinity,
             delay: i * 0.2,
             ease: "linear",

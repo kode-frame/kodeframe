@@ -4,7 +4,7 @@ import { Logo } from "@/components/ui/logo";
 import { Navbar } from "@/components/ui/navbar";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScroll } from "@/hooks/useScroll";
-import { fadeIn } from "@/lib/animations/animate";
+import { fadeIn } from "@/lib/animations/fadeIn";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
