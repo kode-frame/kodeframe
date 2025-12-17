@@ -1,4 +1,4 @@
-import { Box, Code, Globe, Layers, Monitor } from "lucide-react";
+import { Code, Globe, Layers } from "lucide-react";
 import { ServiceProps, ServiceSection } from "./types";
 
 export const SERVICE_SECTION: ServiceSection = {

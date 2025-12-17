@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { container, fadeInUp } from "@/lib/animations/fadeInUp";
 import { motion } from "framer-motion";
-import { AnimatedLines } from "./animate";
+import { AnimatedLines } from "./animations";
 import { HERO_SECTION } from "./constants";
 
 export default function Hero() {
