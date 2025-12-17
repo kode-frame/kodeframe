@@ -22,7 +22,7 @@ export default function Header() {
         isScrolled ? "bg-tech-navy md:bg-tech-navy/85 md:backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-5">
+      <div className="max-w-7xl mx-auto px-4 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Logo />

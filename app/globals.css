@@ -55,13 +55,44 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--tech-navy);
 }
 
+h1 {
+  font-size: var(--h1);
+  /* Other h1 styles */
+}
+
+h2 {
+  font-size: var(--h2);
+  /* Other h2 styles */
+}
+
+h3 {
+  font-size: var(--h3);
+  /* Other h3 styles */
+}
+
+.small-text {
+  font-size: var(--small);
+  /* Other small text styles */
+}
+
 h1.text-hero {
   @apply text-soft-grey font-bold;
+  font-size: var(--h1);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+h3.text-card {
+  @apply text-soft-grey;
+  font-size: var(--h3);
+}
+
 h3.text-footer {
-  @apply text-soft-grey font-semibold;
+  @apply text-soft-grey;
+  font-size: var(--h3);
+}
+
+p.text-card {
+  @apply text-soft-grey/50;
 }
 
 p.text-hero {

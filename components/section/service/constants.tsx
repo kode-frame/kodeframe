@@ -1,4 +1,4 @@
-import { Box, Code, Monitor } from "lucide-react";
+import { Box, Code, Globe, Layers, Monitor } from "lucide-react";
 import { ServiceProps, ServiceSection } from "./types";
 
 export const SERVICE_SECTION: ServiceSection = {
@@ -8,18 +8,27 @@ export const SERVICE_SECTION: ServiceSection = {
 
 export const SERVICES: ServiceProps[] = [
   {
-    icon: <Monitor size={48} />,
+    id: 1,
+    badge: "Popular",
+    icon: <Globe className="w-4 h-4" />,
     title: "Landing Page",
-    description: "Simple, fast, dan fokus pada konversi."
+    description: "Simple, fast, dan fokus pada konversi.",
+    color: "text-blue-400",
   },
   {
-    icon: <Box size={48} />,
+    id: 2,
+    badge: "Featured",
+    icon: <Layers className="w-4 h-4" />,
     title: "Business Website",
-    description: "Struktur lengkap untuk brand profesional."
+    description: "Struktur lengkap untuk brand profesional.",
+    color: "text-indigo-400",
   },
   {
-    icon: <Code size={48} />,
+    id: 3,
+    badge: "New",
+    icon: <Code className="w-4 h-4" />,
     title: "Custom Build",
-    description: "Tailored untuk kebutuhan kamu."
+    description: "Tailored untuk kebutuhan kamu.",
+    color: "text-emerald-400"
   }
 ];

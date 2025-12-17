@@ -6,7 +6,7 @@ export function CardContent({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("px-6 pb-6 text-sm text-slate-600", className)}
+      className={cn("px-4 pb-6 text-sm text-slate-600", className)}
       {...props}
     />
   );

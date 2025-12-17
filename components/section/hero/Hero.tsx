@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section className="min-h-screen bg-tech-navy flex items-center justify-center relative overflow-hidden">
       <AnimatedLines />
-      <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 pt-32 pb-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div 
             variants={container}
@@ -22,7 +22,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-hero mb-4 md:mb-6"
+              className="text-hero mb-4 md:mb-6"
             >
               {HERO_SECTION.headline}
             </motion.h1>
