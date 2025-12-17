@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/ui/navbar";
+import { slideInRight } from "@/lib/animations/slideInRight";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { container, slideInRight } from "@/lib/animations/slideInRight";
 
 interface MobileMenuProps {
   isOpen: boolean;

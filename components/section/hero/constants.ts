@@ -1,4 +1,4 @@
-import { HeroSection } from "./type";
+import { HeroSection } from "./types";
 
 export const HERO_SECTION: HeroSection = {
   headline: "Build Better Websites",

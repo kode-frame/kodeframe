@@ -1,6 +1,6 @@
 import { NAV_ITEMS } from "@/constants/navigation";
 import { Github, Instagram, Linkedin } from "lucide-react";
-import { BottomLink, FooterLink, FooterSection, SocialIcon } from "./type";
+import { BottomLink, FooterLink, FooterSection, SocialIcon } from "./types";
 
 export const FOOTER_SECTION: FooterSection = {
   tagline: "Membangun website profesional & modern untuk mengembangkan bisnis Anda di era digital.",

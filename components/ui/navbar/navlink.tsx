@@ -1,14 +1,8 @@
 import { isActiveRoute } from "@/lib/navigations/nav";
 import { cn } from "@/lib/utils/cn";
-import { NavItem } from "@/types/navigation"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type NavLinkProps = {
-  item: NavItem;
-  className?: string;
-  activeClassName?: string;
-};
+import { NavLinkProps } from "./types";
 
 export function NavLink({
   item,

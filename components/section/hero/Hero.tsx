@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { container, fadeInUp } from "@/lib/animations/fadeInUp";
 import { motion } from "framer-motion";
 import { AnimatedLines } from "./animate";
-import { HERO_SECTION } from "./constant";
+import { HERO_SECTION } from "./constants";
 
 export default function Hero() {
   return (
@@ -16,7 +16,7 @@ export default function Hero() {
             variants={container}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3}}
+            viewport={{ once: true, amount: 0.3 }}
             className="text-center lg:text-left"
           >
             {/* Headline */}
