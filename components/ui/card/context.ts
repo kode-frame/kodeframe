@@ -1,18 +1,14 @@
 import { createContext, useContext } from "react";
+import { CardContextType } from "./types";
 
-type CardContextValue = {
-  variant?: string;
-  hasImage?: boolean;
-};
-
-const CardContext = createContext<CardContextValue | null>(null);
+export const CardContext = createContext<CardContextType | null>(null);
 
 export const useCardContext = () => {
-  const ctx = useContext(CardContext);
-  if (!ctx) {
-    throw new Error("Card subcomponent must be used inside <Card />");
-  }
-  return ctx;
-};
+  const context = useContext(CardContext);
 
-export default CardContext;
+  if (!context) {
+    throw new Error("Card components must be used within a Card");
+  }
+
+  return context;
+};

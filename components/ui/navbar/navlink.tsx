@@ -8,6 +8,7 @@ export function NavLink({
   item,
   className,
   activeClassName = "bg-teal-500 font-semibold",
+  onClose,
 }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = isActiveRoute(pathname, item.href, item.exact);
@@ -15,6 +16,7 @@ export function NavLink({
   return (
     <Link
       href={item.href}
+      onClick={onClose}
       className={cn(className, isActive && activeClassName)}
     >
       {item.label}

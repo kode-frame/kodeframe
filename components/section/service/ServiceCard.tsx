@@ -22,7 +22,7 @@ export function ServiceCard({ service, motionProps, style }: ServiceCardProps) {
         duration: 0.4,
         ease: [0.32, 0.72, 0, 1]
       }}
-      className="absolute w-65 lg:w-100 aspect-4/3 bg-tech-navy rounded-xl border border-white/20 shadow-2xl p-4 lg:p-8 flex flex-col justify-between overflow-hidden"
+      className="absolute w-65 lg:w-110 aspect-4/3 bg-tech-navy rounded-xl border border-white/20 shadow-2xl p-4 lg:p-8 flex flex-col justify-between overflow-hidden"
     >
       {/* Card Content */}
       <div className="space-y-4">

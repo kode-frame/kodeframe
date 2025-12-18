@@ -9,6 +9,11 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 
+// Add scroll padding to html element to account for fixed header
+if (typeof document !== 'undefined') {
+  document.documentElement.style.scrollPaddingTop = '4rem';
+}
+
 export default function Header() {
   const isScrolled = useScroll();
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();

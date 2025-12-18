@@ -1,21 +1,61 @@
 import { cn } from "@/lib/utils/cn";
-import { useCardContext } from "./context";
+import { forwardRef } from "react";
+import { CardHeaderProps } from "./types";
+import { cardHeaderVariants } from "./variants";
 
-export function CardHeader({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  const { variant, hasImage } = useCardContext();
+const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
+  (
+    {
+      title,
+      subtitle,
+      titleSize = "md",
+      align = "left",
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "p-6 pb-3",
+          className
+        )}
+        {...props}
+      >
+        {children ? (
+          children
+        ) : (
+          <div className={cn(cardHeaderVariants({ align, titleSize }))}>
+            {title && (
+              <h4 className={cn(
+                "font-semibold leading-none tracking-tight",
+                titleSize === "sm" && "text-base",
+                titleSize === "md" && "text-lg",
+                titleSize === "lg" && "text-2xl",
+              )}>
+                {title}
+              </h4>
+            )}
+            {subtitle && (
+              <div className={cn(
+                "text-gray-500",
+                titleSize === "sm" && "text-sm",
+                titleSize === "md" && "text-sm",
+                titleSize === "lg" && "text-base",
+              )}>
+                {subtitle}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
-  return (
-    <div
-      className={cn(
-        "p-6 font-semibold",
-        hasImage && "pt-4",
-        variant === "portfolio" && "absolute bottom-0 z-10",
-        className
-      )}
-      {...props}
-    />
-  );
-}
+CardHeader.displayName = "CardHeader";
+
+export default CardHeader;

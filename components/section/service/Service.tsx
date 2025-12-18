@@ -16,13 +16,14 @@ export default function Service() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-24">
+        className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-24"
+      >
         <div className="grid md:grid-cols-2 gap-8 lg:gap-8 items-center">
           {/* Left Column: Content */}
           <div className="space-y-4">
-            <motion.h1 variants={fadeInUp}>
+            <motion.h2 variants={fadeInUp}>
               {SERVICE_SECTION.title}
-            </motion.h1>
+            </motion.h2>
             <motion.p 
               variants={fadeInUp}
               className="max-w-lg mb-8"
@@ -31,10 +32,10 @@ export default function Service() {
             </motion.p>
           </div>
 
-          {/* Right Column: Stacked Cards (Dark Mode Style) */}
+          {/* Right Column: Stacked Cards */}
           <motion.div 
             variants={fadeInUp}
-            className="relative h-50 md:h-40 lg:h-70 flex justify-center lg:justify-end"
+            className="relative h-50 md:h-40 lg:h-70 flex justify-center"
           >
             <ServiceStack
               services={SERVICES}

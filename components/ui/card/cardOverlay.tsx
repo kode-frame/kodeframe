@@ -1,28 +1,34 @@
 import { cn } from "@/lib/utils/cn";
-import { useCardContext } from "./context";
+import { forwardRef } from "react";
+import { CardOverlayProps } from "./types";
+import { cardOverlayVariants } from "./variants";
 
-interface CardOverlayProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  showOnHover?: boolean;
-}
+const CardOverlay = forwardRef<HTMLDivElement, CardOverlayProps>(
+  (
+    {
+      position = "center",
+      gradient = "none",
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          cardOverlayVariants({ position, gradient }),
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
-export function CardOverlay({
-  className,
-  showOnHover = true,
-  ...props
-}: CardOverlayProps) {
-  const { variant } = useCardContext();
+CardOverlay.displayName = "CardOverlay";
 
-  return (
-    <div
-      className={cn(
-        "absolute inset-0 z-10",
-        variant === "portfolio" && "bg-black/40",
-        showOnHover &&
-          "opacity-0 group-hover:opacity-100 transition",
-        className
-      )}
-      {...props}
-    />
-  );
-}
+export default CardOverlay;

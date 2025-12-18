@@ -1,32 +1,43 @@
 import { cn } from "@/lib/utils/cn";
-import { useCardContext } from "./context";
+import { forwardRef } from "react";
+import { CardActionProps } from "./types";
+import { cardActionVariants } from "./variants";
 
-interface CardActionProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  showOnHover?: boolean;
-  position?: "center" | "bottom";
-}
+const CardAction = forwardRef<HTMLButtonElement, CardActionProps>(
+  (
+    {
+      variant = "primary",
+      size = "md",
+      fullWidth = false,
+      icon,
+      iconPosition = "left",
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          cardActionVariants({ variant, size, fullWidth }),
+          className
+        )}
+        {...props}
+      >
+        {icon && iconPosition === "left" && (
+          <span className="ml-2">{icon}</span>
+        )}
+        {children}
+        {icon && iconPosition === "right" && (
+          <span className="ml-2">{icon}</span>
+        )}
+      </button>
+    );
+  }
+);
 
-export function CardAction({
-  className,
-  showOnHover = true,
-  position = "center",
-  ...props
-}: CardActionProps) {
-  const { variant } = useCardContext();
+CardAction.displayName = "CardAction";
 
-  return (
-    <div
-      className={cn(
-        "absolute z-20 flex items-center justify-center",
-        position === "center" && "inset-0",
-        position === "bottom" && "inset-x-0 bottom-0 p-6",
-        showOnHover &&
-          "opacity-0 group-hover:opacity-100 transition",
-        variant === "portfolio" && "text-white",
-        className
-      )}
-      {...props}
-    />
-  );
-}
+export default CardAction;

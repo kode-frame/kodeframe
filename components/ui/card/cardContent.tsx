@@ -1,13 +1,34 @@
 import { cn } from "@/lib/utils/cn";
+import { forwardRef } from "react";
+import { CardContentProps } from "./types";
 
-export function CardContent({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn("px-4 pb-6 text-sm text-slate-600", className)}
-      {...props}
-    />
-  );
-}
+const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
+  (
+    {
+      compact = false,
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "p-6",
+          compact && "py-3",
+          "grow",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+CardContent.displayName = "CardContent"
+
+export default CardContent;

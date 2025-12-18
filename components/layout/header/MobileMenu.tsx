@@ -40,20 +40,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate="visible"
             exit="hidden"
           >
-        <button
-          onClick={onClose}
-          className="absolute top-6 right-6 text-soft-grey focus:outline-none z-60"
-          aria-label="Close menu"
-        >
-          <X size={24} />
-        </button>
-        
-        <div className="flex flex-col items-center justify-center flex-1 space-y-8 px-6 pt-16 text-xl">
-          <Navbar />
-          <Button variant="tealPrimary" onClick={onClose} className="mt-8">
-            Mulai Proyek
-          </Button>
-        </div>
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 text-soft-grey focus:outline-none z-60"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="flex flex-col items-center justify-center flex-1 space-y-8 px-6 pt-16 text-xl">
+              <Navbar onClose={onClose} />
+              <Button variant="tealPrimary" onClick={onClose} className="mt-8">
+                Mulai Proyek
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       )}

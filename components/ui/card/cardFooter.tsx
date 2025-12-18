@@ -1,16 +1,42 @@
 import { cn } from "@/lib/utils/cn";
+import { forwardRef } from "react";
+import { CardFooterProps } from "./types";
 
-export function CardFooter({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn(
-        "px-6 py-4 border-t border-slate-200 flex items-center gap-2",
-        className
-      )}
-      {...props}
-    />
-  );
-}
+const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
+  (
+    {
+      justify = "start",
+      border = true,
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const justifyClasses = {
+      start: "justify-start",
+      center: "justify-center",
+      end: "justify-end",
+      between: "justify-between",
+    };
+
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "p-6 pt-3 flex items-center",
+          justifyClasses[justify],
+          border && "border border-gray-100",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+CardFooter.displayName = "CardFooter"
+
+export default CardFooter;
