@@ -7,7 +7,7 @@ import { ServiceCard } from "./ServiceCard";
 import { Sparkles } from "lucide-react";
 
 export default function Service() {
-  const [hoveredService, setHoveredService] = useState(null);
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
 
   return (
     <section id="services" className="relative w-full py-24 px-4 md:px-6 lg:px-8">
@@ -42,10 +42,7 @@ export default function Service() {
               onMouseEnter={() => setHoveredService(service.id)}
               onMouseLeave={() => setHoveredService(null)}
             >
-              <ServiceCard 
-                key={index}
-                service={service}
-              />
+              <ServiceCard service={service} />
 
               <AnimatePresence>
                 {hoveredService === service.id && (

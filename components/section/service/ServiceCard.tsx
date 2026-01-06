@@ -9,7 +9,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <Card className="h-full bg-electric-teal/10 rounded-3xl border border-electric-teal/20 flex flex-col justify-between overflow-hidden">
+    <Card key={service.id} className="h-full bg-electric-teal/10 rounded-3xl border border-electric-teal/20 flex flex-col justify-between overflow-hidden">
       <CardHeader>
         <Badge 
           variant="outline"
