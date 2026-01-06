@@ -1,5 +1,3 @@
-import { MotionButton } from "@/components/motion/motion-button";
-import { NavBar } from "@/components/ui/navbar";
 import { NAV_ITEMS } from "@/constants/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
