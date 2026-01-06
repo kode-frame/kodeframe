@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
 
   return (
     <section id="why-choose" className="relative w-full py-24 px-4 md:px-6 lg:px-8">
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-size-[40px_40px]" />
       </div>
       

@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { PROJECT_SECTION, PROJECTS } from "./constants";
-import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
 import { ProjectProps } from "./types";
+import { ProjectGrid } from "./ProjectGrid";
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);
@@ -31,29 +31,16 @@ export default function Project() {
           </div>
         </motion.div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...PROJECTS].sort((a, b) => b.id - a.id).map((project, index) => (
-            <motion.div 
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group cursor-pointer"
-            >
-              <ProjectCard
-                project={project}
-                onSelect={setSelectedProject}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+        <ProjectGrid 
+          projects={PROJECTS}
+          onSelect={setSelectedProject}
+        />
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      </div>
     </section>
   );
 }

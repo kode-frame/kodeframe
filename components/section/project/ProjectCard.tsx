@@ -6,20 +6,17 @@ import { ProjectProps } from "./types";
 
 interface ProjectCardProps {
   project: ProjectProps;
-  onSelect: (project: ProjectProps) => void;
 }
 
-export function ProjectCard({ project, onSelect }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card 
-      onClick={() => onSelect(project)}
-      className="group relative pt-0 h-full bg-electric-teal/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-electric-teal/20 hover:border-electric-teal/40 transition-all duration-500"
-    >
+    <Card className="group relative pt-0 h-full bg-electric-teal/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-electric-teal/20 hover:border-electric-teal/40 transition-all duration-500">
       <AspectRatio ratio={16 / 9} className="relative w-full h-full overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
           fill
+          quality={90}
           sizes="(max-width: 768px) 100vw, 80vw"
           className="object-cover"
           priority

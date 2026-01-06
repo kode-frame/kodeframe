@@ -12,7 +12,7 @@ interface ProjectModalProps {
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {project && (
         <motion.div
           key="modal-root"
@@ -30,9 +30,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Modal */}
           <motion.div 
             key="modal"
-            initial={{ opacity: 0, scale: 0.95 }} 
+            initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
-            exit={{ opacity: 0, scale: 0.95 }} 
+            exit={{ opacity: 0, scale: 0.9 }} 
             className="fixed inset-4 md:inset-8 lg:inset-12 xl:inset-20 z-50 bg-electric-teal/10 backdrop-blur-xl rounded-3xl border border-electric-teal/20 overflow-hidden flex flex-col max-w-450 mx-auto"
           >
             {/* Header */}
@@ -43,7 +43,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
               <button 
                 onClick={onClose} 
-                className="p-2 hover:bg-white/10 rounded-xl transition-colors" 
+                className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors" 
                 aria-label="Close modal"
               >
                 <X className="text-white" />
@@ -59,6 +59,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     src={project.image}
                     alt={project.title}
                     fill
+                    quality={90}
                     sizes="(max-width: 768px) 100vw, 80vw"
                     className="object-cover"
                   />
@@ -125,7 +126,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                             href={project.liveUrl} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center justify-between p-4 bg-white/10 rounded-xl border border-white/10 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white transition-colors group"
+                            className="flex items-center justify-between p-4 bg-electric-teal/10 rounded-xl border border-electric-teal/10 hover:border-electric-teal/20 transition-colors group"
                           >
                             <span className="text-white font-semibold">View Live Site</span>
                             <ExternalLink size={18} className="text-gray-400 group-hover:text-white" />
@@ -137,7 +138,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                           href={project.repoUrl} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="flex items-center justify-between p-4 bg-white/10 rounded-xl border border-white/10 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white transition-colors group"
+                          className="flex items-center justify-between p-4 bg-electric-teal/10 rounded-xl border border-electric-teal/10 hover:border-electric-teal/20 transition-colors group"
                         >
                           <span className="text-white font-semibold">Source Code</span>
                           <Icon icon="simple-icons:github" className="text-gray-400 group-hover:text-white" />

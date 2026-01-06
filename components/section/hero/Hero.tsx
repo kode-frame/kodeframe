@@ -1,14 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { MotionButton } from "@/components/motion/motion-button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { AnimatedLines } from "./animations";
 import { HERO_SECTION } from "./constants";
 
 export default function Hero() {
-  const MotionButton = motion(Button);
-  
   return (
     <section className="min-h-screen bg-tech-navy flex items-center justify-center relative overflow-hidden">
       <AnimatedLines />
@@ -37,14 +35,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 mt-8 items-center justify-center lg:justify-start"
+              className="flex flex-row gap-4 mt-8 items-center justify-center lg:justify-start"
             >
-              <MotionButton size="lg" className="rounded-full w-full sm:w-auto" asChild>
+              <MotionButton size="lg" className="rounded-full">
                 <Link href={HERO_SECTION.ctaPrimary.href}>
                   {HERO_SECTION.ctaPrimary.label}
                 </Link>
               </MotionButton>
-              <MotionButton variant="outline" size="lg" className="rounded-full w-full sm:w-auto" asChild>
+              <MotionButton variant="outline" size="lg" className="rounded-full">
                 <Link href={HERO_SECTION.ctaSecondary.href}>
                   {HERO_SECTION.ctaSecondary.label}
                 </Link>
