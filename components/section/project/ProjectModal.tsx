@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 import { ProjectProps } from "./types";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 interface ProjectModalProps {
   project: ProjectProps | null;
@@ -11,6 +12,10 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  useScrollLock(!!project);
+
+  if (!project) return null;
+  
   return (
     <AnimatePresence>
       {project && (
@@ -33,10 +38,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
             exit={{ opacity: 0, scale: 0.9 }} 
-            className="fixed inset-4 md:inset-8 lg:inset-12 xl:inset-20 z-50 bg-electric-teal/10 backdrop-blur-xl rounded-3xl border border-electric-teal/20 overflow-hidden flex flex-col max-w-450 mx-auto"
+            className="fixed inset-6 md:inset-8 lg:inset-12 xl:inset-20 z-50 bg-electric-teal/10 backdrop-blur-xl rounded-3xl border border-electric-teal/20 overflow-hidden flex flex-col max-w-450 mx-auto"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
+            <div className="flex items-center justify-between p-6 md:p-8 border-b border-electric-teal/10">
               <div>
                 <h3 className="text-3xl font-bold text-white">{project.title}</h3>
                 <p className="text-gray-400 mt-1">{project.year} • {project.category}</p>
@@ -51,28 +56,27 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Content */}
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-6 md:p-8">
               <div className="max-w-6xl mx-auto">
                 {/* Video Preview */}
-                <AspectRatio ratio={16 / 9} className="relative rounded-2xl overflow-hidden bg-linear-to-br from-gray-800 to-gray-900 mb-8">
+                <AspectRatio ratio={16 / 9} className="relative rounded-2xl overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    fill
-                    quality={90}
-                    sizes="(max-width: 768px) 100vw, 80vw"
+                    width={1152}
+                    height={648}
                     className="object-cover"
                   />
                 </AspectRatio>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
                   {/* Main Content */}
                   <div className="lg:col-span-2">
                     <h4 className="text-2xl font-bold text-white mb-4">About this Project</h4>
-                    <p className="text-gray-300 text-lg leading-relaxed mb-6">{project.description}</p>
+                    <p className="text-soft-gray text-lg leading-relaxed mb-6">{project.description}</p>
 
                     <h4 className="text-2xl font-bold text-white mb-4">Challenge & Solution</h4>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-soft-gray leading-relaxed mb-6">
                       This project presented unique challenges in creating an immersive user experience while maintaining performance across all devices.
                     </p>
 
@@ -81,7 +85,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         <h5 className="text-lg font-semibold text-white mb-3">Key Features</h5>
                         <ul className="space-y-2">
                           {["Responsive Design", "Performance Optimized", "Accessible", "Modern UI"].map(feature => (
-                            <li key={feature} className="flex items-center text-gray-300">
+                            <li key={feature} className="flex items-center text-soft-gray">
                               <div className="w-2 h-2 bg-current rounded-full mr-3" />
                               {feature}
                             </li>
@@ -92,7 +96,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         <h5 className="text-lg font-semibold text-white mb-3">My Role</h5>
                         <ul className="space-y-2">
                           {["Full-stack Development", "UI/UX Design", "Project Management", "Deployment"].map(role => (
-                            <li key={role} className="flex items-center text-gray-300">
+                            <li key={role} className="flex items-center text-soft-gray">
                               <div className="w-2 h-2 bg-current rounded-full mr-3" />
                               {role}
                             </li>
@@ -109,8 +113,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <h5 className="text-lg font-semibold text-white mb-3">Technologies</h5>
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech, index) => (
-                          // <span key={index} className="px-3 py-2 bg-white/10 rounded-lg text-sm text-gray-300 border border-white/10">{tech.label}</span>
-                          <Icon key={index} icon={`simple-icons:${tech.icon}`} color={tech.color} />
+                          <span key={index} className="px-3 py-2 bg-electric-teal/10 rounded-lg text-sm text-soft-gray border border-electric-teal/10">{tech.label}</span>
+                          // <Icon key={index} icon={`simple-icons:${tech.icon}`} color={tech.color} />
                         ))}
                       </div>
                     </div>
@@ -129,7 +133,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                             className="flex items-center justify-between p-4 bg-electric-teal/10 rounded-xl border border-electric-teal/10 hover:border-electric-teal/20 transition-colors group"
                           >
                             <span className="text-white font-semibold">View Live Site</span>
-                            <ExternalLink size={18} className="text-gray-400 group-hover:text-white" />
+                            <ExternalLink size={18} className="text-electric-teal group-hover:text-white" />
                           </motion.a>
                         )}
                         <motion.a 

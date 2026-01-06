@@ -1,6 +1,8 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ProjectProps } from "./types";
 
@@ -15,11 +17,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Image
           src={project.image}
           alt={project.title}
-          fill
-          quality={90}
-          sizes="(max-width: 768px) 100vw, 80vw"
+          width={450}
+          height={250}
           className="object-cover"
-          priority
         />
       </AspectRatio>
       <CardHeader>
@@ -37,6 +37,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardContent>
         <CardDescription>
           <div className="text-gray-300 text-sm mb-4 leading-relaxed">{project.description}</div>
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((tech, index) => (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1}}
+                transition={{ type: "spring", stiffness: 200, damping: 12, delay: index * 0.1 }}
+              >
+                <Icon key={index} icon={`simple-icons:${tech.icon}`} color={tech.color} />
+              </motion.div>
+            ))}
+          </div>
         </CardDescription>
       </CardContent>
       
