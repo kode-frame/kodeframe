@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { PROJECT_SECTION, PROJECTS } from "./constants";
 import { ProjectCard } from "./ProjectCard";
-import { useState } from "react";
-import { ProjectProps } from "./types";
 import { ProjectModal } from "./ProjectModal";
+import { ProjectProps } from "./types";
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);

@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { ProjectProps } from "./types";
-import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ExternalLink, Github, X } from "lucide-react";
 import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ExternalLink, X } from "lucide-react";
+import Image from "next/image";
+import { ProjectProps } from "./types";
 
 interface ProjectModalProps {
   project: ProjectProps | null;
@@ -140,7 +140,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                           className="flex items-center justify-between p-4 bg-white/10 rounded-xl border border-white/10 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white transition-colors group"
                         >
                           <span className="text-white font-semibold">Source Code</span>
-                          <Github size={18} className="text-gray-400 group-hover:text-white" />
+                          <Icon icon="simple-icons:github" className="text-gray-400 group-hover:text-white" />
                         </motion.a>
                       </div>
                     </div>

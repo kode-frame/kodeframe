@@ -1,7 +1,6 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { ProjectProps } from "./types";
 

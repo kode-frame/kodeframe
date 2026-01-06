@@ -9,6 +9,6 @@ export const HERO_SECTION: HeroSection = {
   },
   ctaSecondary: {
     label: "See Work",
-    href: "#portfolio"
+    href: "#projects"
   }
 }
