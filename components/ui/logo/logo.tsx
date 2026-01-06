@@ -3,14 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
+  href?: string;
   className?: string;
 }
 
 export function Logo({ 
+  href = "/",
   className = "" 
 }: LogoProps) {
   return (
-    <Link href="/" className={`inline-block ${className}`}>
+    <Link href={href} className={`inline-block ${className}`}>
       <Image
         src={logo}
         alt="Kodeframe Logo"

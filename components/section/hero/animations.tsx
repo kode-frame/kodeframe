@@ -22,7 +22,6 @@ export function AnimatedLines({
 
   return (
     <>
-      {/* Horizontal Lines */}
       {Array.from({ length: horizontalCount }).map((_, i) => (
         <motion.div
           key={`h-${i}`}
@@ -41,7 +40,6 @@ export function AnimatedLines({
         />
       ))}
 
-      {/* Vertical Lines */}
       {Array.from({ length: verticalCount }).map((_, i) => (
         <motion.div
           key={`v-${i}`}

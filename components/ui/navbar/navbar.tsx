@@ -5,7 +5,7 @@ interface NavbarProps {
   onClose?: () => void;
 }
 
-export function Navbar({ onClose }: NavbarProps) {
+export function NavBar({ onClose }: NavbarProps) {
   return (
     <>
       {NAV_ITEMS.map((item) => (
@@ -13,7 +13,7 @@ export function Navbar({ onClose }: NavbarProps) {
           key={item.href}
           item={item}
           onClose={onClose}
-          className="text-soft-grey hover:text-electric-teal transition-colors"
+          className="text-soft-gray hover:text-electric-teal transition-colors"
         />
       ))}
     </>

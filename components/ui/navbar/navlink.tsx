@@ -1,23 +1,13 @@
-import { isActiveRoute } from "@/lib/navigations/nav";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { NavLinkProps } from "./types";
 
-export function NavLink({
-  item,
-  className,
-  activeClassName = "bg-teal-500 font-semibold",
-  onClose,
-}: NavLinkProps) {
-  const pathname = usePathname();
-  const isActive = isActiveRoute(pathname, item.href, item.exact);
-
+export function NavLink({ item, className, onClose }: NavLinkProps) {
   return (
     <Link
       href={item.href}
       onClick={onClose}
-      className={cn(className, isActive && activeClassName)}
+      className={cn(className)}
     >
       {item.label}
     </Link>

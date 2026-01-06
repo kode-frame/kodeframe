@@ -12,7 +12,7 @@ export interface FooterLink {
 }
 
 export interface SocialIcon {
-  icon: React.ReactNode;
+  icon: string;
   label: string;
   href: string;
 }

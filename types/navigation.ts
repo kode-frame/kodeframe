@@ -1,4 +1,4 @@
-export type NavItem = {
+export interface NavItem {
   label: string;
   href: string;
   exact?: boolean;

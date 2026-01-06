@@ -9,5 +9,5 @@ export interface ServiceProps {
   icon: React.ReactNode,
   title: string,
   description: string,
-  color: string
+  color: string,
 }

@@ -1,4 +1,4 @@
 export interface ContactList {
-  icon: React.ReactNode;
+  icon: string;
   label: string;
 }

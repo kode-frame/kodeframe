@@ -1,10 +1,9 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/ui/navbar";
-import { slideInRight } from "@/lib/animations/slideInRight";
+import { MotionButton } from "@/components/motion/motion-button";
+import { NavBar } from "@/components/ui/navbar";
+import { NAV_ITEMS } from "@/constants/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import Link from "next/link";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -15,46 +14,38 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          key="mobile-menu"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 overflow-y-auto"
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-tech-navy/95 backdrop-blur-sm z-50 flex items-center justify-center"
         >
-          <motion.div 
-            className="fixed inset-0 bg-tech-navy/50"
+          <button
             onClick={onClose}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            transition={{ duration: 0.3 }}
-          />
-          
-          <motion.div 
-            className="fixed top-0 right-0 h-full w-full max-w-sm bg-tech-navy shadow-lg z-50 flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-            variants={slideInRight}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
+            className="absolute top-6 right-4 text-soft-gray focus:outline-none"
+            aria-label="Close menu"
           >
-            <button
-              onClick={onClose}
-              className="absolute top-6 right-6 text-soft-grey focus:outline-none z-60"
-              aria-label="Close menu"
-            >
-              <X size={24} />
-            </button>
-            
-            <div className="flex flex-col items-center justify-center flex-1 space-y-8 px-6 pt-16 text-xl">
-              <Navbar onClose={onClose} />
-              <Button variant="tealPrimary" onClick={onClose} className="mt-8">
-                Mulai Proyek
-              </Button>
-            </div>
-          </motion.div>
+            <X size={24} />
+          </button>
+          
+          <nav className="text-center space-y-8">
+            {NAV_ITEMS.map((item, index) => (
+              <motion.div 
+                key={item.label} 
+                initial={{ opacity: 0, x: -100 }} 
+                animate={{ opacity: 1, x: 0 }} 
+                transition={{ delay: 0.2 + index * 0.1 }}
+              >
+                <Link 
+                  href={item.href} 
+                  onClick={onClose} 
+                  className="text-3xl md:text-4xl font-bold text-white hover:text-gray-300 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
         </motion.div>
       )}
     </AnimatePresence>

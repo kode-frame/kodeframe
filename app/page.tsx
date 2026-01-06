@@ -1,13 +1,15 @@
 import Hero from "@/components/section/hero";
-import Portfolio from "@/components/section/portfolio/Portfolio";
+import Project from "@/components/section/project";
 import Service from "@/components/section/service";
+import WhyChooseUs from "@/components/section/whychooseus";
 
 export default function Home() {
   return (
-    <main className="grow overflow-x-hidden">
+    <main className="bg-tech-navy">
       <Hero />
       <Service />
-      <Portfolio />
+      <Project />
+      <WhyChooseUs />
     </main>
   );
 }

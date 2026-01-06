@@ -1,18 +1,12 @@
 "use client";
 
 import { Logo } from "@/components/ui/logo";
-import { Navbar } from "@/components/ui/navbar";
+import { NavBar } from "@/components/ui/navbar";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScroll } from "@/hooks/useScroll";
-import { fadeIn } from "@/lib/animations/fadeIn";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
-
-// Add scroll padding to html element to account for fixed header
-if (typeof document !== 'undefined') {
-  document.documentElement.style.scrollPaddingTop = '4rem';
-}
 
 export default function Header() {
   const isScrolled = useScroll();
@@ -20,27 +14,26 @@ export default function Header() {
 
   return (
     <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-tech-navy md:bg-tech-navy/85 md:backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="fixed w-full z-50"
     >
-      <div className="max-w-7xl mx-auto px-4 py-5">
+      <div className={`relative mx-auto top-0 p-4 transition-all duration-700 ${isScrolled 
+        ? "max-w-6xl lg:top-6 lg:px-6 lg:py-2.5 bg-tech-navy/50 lg:bg-electric-teal/10 backdrop-blur-md lg:rounded-full" 
+        : "max-w-7xl bg-transparent"
+      }`}>
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Logo />
 
-          {/* Navigation Menu */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 text-[clamp(14px,1vw,18px)]">
-            <Navbar />
+          <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 text-[clamp(14px,1vw,18px)]">
+            <NavBar />
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden text-soft-grey focus:outline-none"
+            className="lg:hidden text-soft-gray focus:outline-none"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -49,7 +42,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
     </motion.header>
   );
