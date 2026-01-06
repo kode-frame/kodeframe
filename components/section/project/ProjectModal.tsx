@@ -79,7 +79,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <div>
                         <h5 className="text-lg font-semibold text-white mb-3">Key Features</h5>
                         <ul className="space-y-2">
-                          {['Responsive Design', 'Performance Optimized', 'Accessible', 'Modern UI'].map(feature => (
+                          {["Responsive Design", "Performance Optimized", "Accessible", "Modern UI"].map(feature => (
                             <li key={feature} className="flex items-center text-gray-300">
                               <div className="w-2 h-2 bg-current rounded-full mr-3" />
                               {feature}
@@ -90,7 +90,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <div>
                         <h5 className="text-lg font-semibold text-white mb-3">My Role</h5>
                         <ul className="space-y-2">
-                          {['Full-stack Development', 'UI/UX Design', 'Project Management', 'Deployment'].map(role => (
+                          {["Full-stack Development", "UI/UX Design", "Project Management", "Deployment"].map(role => (
                             <li key={role} className="flex items-center text-gray-300">
                               <div className="w-2 h-2 bg-current rounded-full mr-3" />
                               {role}

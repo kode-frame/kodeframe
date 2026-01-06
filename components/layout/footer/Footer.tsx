@@ -3,7 +3,7 @@
 import { Logo } from "@/components/ui/logo";
 import { CONTACT_LIST } from "@/constants/contact";
 import { Icon } from "@iconify/react";
-import { motion, spring } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { BOTTOM_LINK, FOOTER_LINK, FOOTER_SECTION, SOCIAL_ICON } from "./constants";
 
@@ -45,7 +45,7 @@ export default function Footer() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ type: spring, stiffness: 200, delay: index * 0.1   }}
+                  transition={{ type: "spring", stiffness: 200, delay: index * 0.1   }}
                 >
                   <Link
                     href={social.href}

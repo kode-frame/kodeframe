@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 
 export default function WhyChooseUs() {
-  const [hovered, setHovered] = useState(null);
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <section id="why-choose" className="relative w-full py-24 px-4 md:px-6 lg:px-8">
@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
               initial={{ opacity:0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               // whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6, delay: item.delay ?? index * 0.1, type: 'spring', stiffness: 100 }}
+              transition={{ duration: 0.6, delay: item.delay ?? index * 0.1, type: "spring", stiffness: 100 }}
               className="group relative"
               onMouseEnter={() => setHovered(item.id)}
               onMouseLeave={() => setHovered(null)}
