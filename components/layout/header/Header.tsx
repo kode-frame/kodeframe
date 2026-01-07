@@ -2,15 +2,15 @@
 
 import { Logo } from "@/components/ui/logo";
 import { NavBar } from "@/components/ui/navbar";
-import { useMobileMenu } from "@/hooks/useMobileMenu";
-import { useScroll } from "@/hooks/useScroll";
+import { useOverlay } from "@/hooks/useOverlay";
+import { useHeaderScroll } from "@/hooks/useHeaderScroll";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 
 export default function Header() {
-  const isScrolled = useScroll();
-  const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
+  const isScrolled = useHeaderScroll();
+  const mobileMenu = useOverlay();
 
   return (
     <motion.header
@@ -32,17 +32,20 @@ export default function Header() {
           </nav>
 
           <button
-            onClick={toggleMobileMenu}
+            onClick={mobileMenu.toggle}
             className="lg:hidden text-soft-gray focus:outline-none"
             aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
+            aria-expanded={mobileMenu.isOpen}
           >
             <Menu size={24} />
           </button>
         </div>
       </div>
 
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+      <MobileMenu 
+        isOpen={mobileMenu.isOpen} 
+        onClose={mobileMenu.close} 
+      />
     </motion.header>
   );
 }

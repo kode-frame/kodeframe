@@ -17,8 +17,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Image
           src={project.image}
           alt={project.title}
-          width={450}
-          height={250}
+          width={768}
+          height={432}
+          loading="lazy"
           className="object-cover"
         />
       </AspectRatio>
@@ -40,6 +41,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech, index) => (
               <motion.div
+                key={index}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1}}
                 transition={{ type: "spring", stiffness: 200, damping: 12, delay: index * 0.1 }}

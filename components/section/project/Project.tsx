@@ -1,14 +1,16 @@
 "use client";
 
+import { useOverlay } from "@/hooks/useOverlay";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { PROJECT_SECTION, PROJECTS } from "./constants";
+import { ProjectGrid } from "./ProjectGrid";
 import { ProjectModal } from "./ProjectModal";
 import { ProjectProps } from "./types";
-import { ProjectGrid } from "./ProjectGrid";
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);
+  const overlay = useOverlay();
 
   return (
     <section id="projects" className="relative w-full min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -19,26 +21,28 @@ export default function Project() {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <div className="mb-16">
-            <div className="flex flex-col items-center space-y-3">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                {PROJECT_SECTION.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                {PROJECT_SECTION.subtitle}
-              </p>
-            </div>
-          </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            {PROJECT_SECTION.title}
+          </h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            {PROJECT_SECTION.subtitle}
+          </p>
         </motion.div>
 
         <ProjectGrid 
           projects={PROJECTS}
-          onSelect={setSelectedProject}
+          onSelect={(project) => {
+            setSelectedProject(project);
+            overlay.open();
+          }}
         />
 
         <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          project={overlay.isOpen ? selectedProject : null}
+          onClose={() => {
+            setSelectedProject(null);
+            overlay.close();
+          }}
         />
       </div>
     </section>

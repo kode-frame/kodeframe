@@ -4,10 +4,10 @@ export interface ServiceSection {
 }
 
 export interface ServiceProps {
-  id: number,
-  badge: string,
-  icon: React.ReactNode,
-  title: string,
-  description: string,
-  color: string,
+  id: number;
+  badge: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  color: string;
 }

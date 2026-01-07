@@ -1,0 +1,65 @@
+import { useCallback, useEffect, useState } from "react";
+
+export function useOverlay(initialOpen = false) {
+  const [isOpen, setIsOpen] = useState(initialOpen);
+  
+  const open = useCallback(() => {
+    setIsOpen(true);
+    window.history.pushState({ overlay: true }, "");
+  }, []);
+
+  const close = useCallback(() => {
+    setIsOpen(false);
+    if (window.history.state?.overlay) {
+      window.history.back();
+    }
+  }, []);
+
+  const toggle = useCallback(() => {
+    isOpen ? close() : open();
+  }, [isOpen, open, close]);
+
+  // Scroll Lock
+  useEffect(() => {
+    const original = document.body.style.overflow;
+
+    if (isOpen) document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [isOpen]);
+
+  // ESC Key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, close]);
+
+  // Back Button (Android / Browser)
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onPopState = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener("popstate", onPopState);
+
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [isOpen]);
+
+  return {
+    isOpen,
+    open,
+    close,
+    toggle
+  };
+}

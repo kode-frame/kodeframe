@@ -1,9 +1,9 @@
 import { TechItem } from "@/types/tech";
 
 export interface ProjectSection {
-  title: string,
-  subtitle: string,
-  ctaButton: string
+  title: string;
+  subtitle: string;
+  ctaButton: string;
 }
 
 export interface ProjectProps {

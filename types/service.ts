@@ -1,6 +1,6 @@
 export interface ServiceList {
   id: number;
-  badge: string
+  badge: string;
   icon: React.ReactNode;
   title: string;
   href: string;

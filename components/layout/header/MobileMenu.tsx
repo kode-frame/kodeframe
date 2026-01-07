@@ -29,7 +29,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <nav className="text-center space-y-8">
             {NAV_ITEMS.map((item, index) => (
               <motion.div 
-                key={item.label} 
+                key={index} 
                 initial={{ opacity: 0, x: -100 }} 
                 animate={{ opacity: 1, x: 0 }} 
                 transition={{ delay: 0.2 + index * 0.1 }}

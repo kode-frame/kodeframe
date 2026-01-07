@@ -1,16 +1,18 @@
-export interface WhyChosseUsSection {
+export interface WhyChooseUsSection {
   title: string;
   subtitle: string;
 }
 
-export interface ValueProp {
+export interface ValueProps {
   id: number;
   icon: React.ReactNode;
   title: string;
   description: string;
   color: string;
-  float: string[];
-  delay: number;
+  position: {
+    x: number;
+    y: number;
+  };
 }
 
 export interface AssuranceProp {

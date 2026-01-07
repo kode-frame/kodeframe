@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 import { ProjectProps } from "./types";
-import { useScrollLock } from "@/hooks/useScrollLock";
 
 interface ProjectModalProps {
   project: ProjectProps | null;
@@ -12,8 +11,6 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
-  useScrollLock(!!project);
-
   if (!project) return null;
   
   return (
@@ -65,6 +62,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     alt={project.title}
                     width={1152}
                     height={648}
+                    loading="lazy"
                     className="object-cover"
                   />
                 </AspectRatio>
@@ -114,7 +112,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.map((tech, index) => (
                           <span key={index} className="px-3 py-2 bg-electric-teal/10 rounded-lg text-sm text-soft-gray border border-electric-teal/10">{tech.label}</span>
-                          // <Icon key={index} icon={`simple-icons:${tech.icon}`} color={tech.color} />
                         ))}
                       </div>
                     </div>
@@ -145,7 +142,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                           className="flex items-center justify-between p-4 bg-electric-teal/10 rounded-xl border border-electric-teal/10 hover:border-electric-teal/20 transition-colors group"
                         >
                           <span className="text-white font-semibold">Source Code</span>
-                          <Icon icon="simple-icons:github" className="text-gray-400 group-hover:text-white" />
+                          <Icon icon="simple-icons:github" className="text-electric-teal group-hover:text-white" />
                         </motion.a>
                       </div>
                     </div>
