@@ -8,5 +8,5 @@ export interface ServiceList {
   color: {
     text: string;
     bg: string;
-  }
+  };
 }

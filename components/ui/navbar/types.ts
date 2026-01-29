@@ -4,4 +4,4 @@ export type NavLinkProps = {
   item: NavItem;
   className?: string;
   onClose?: () => void;
-}
+};

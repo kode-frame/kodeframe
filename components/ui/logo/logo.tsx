@@ -7,10 +7,7 @@ interface LogoProps {
   className?: string;
 }
 
-export function Logo({ 
-  href = "/",
-  className = "" 
-}: LogoProps) {
+export function Logo({ href = "/", className = "" }: LogoProps) {
   return (
     <Link href={href} className={`inline-block ${className}`}>
       <Image

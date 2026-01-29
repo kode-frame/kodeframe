@@ -30,5 +30,5 @@ export const SERVICES: ServiceProps[] = [
     title: "Custom Build",
     description: "Tailored untuk kebutuhan kamu.",
     color: "text-emerald-400",
-  }
+  },
 ];

@@ -1,1 +1,2 @@
-export { default } from "./WhyChooseUs"
+export { default } from "./WhyChooseUs";
+

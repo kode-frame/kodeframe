@@ -1,10 +1,10 @@
-import { Box, CheckCircle, Layers, Wrench, Zap } from "lucide-react"
-import { AssuranceProp, ValueProps, WhyChooseUsSection } from "./types"
+import { Box, CheckCircle, Layers, Wrench, Zap } from "lucide-react";
+import { AssuranceProp, ValueProps, WhyChooseUsSection } from "./types";
 
 export const WHYCHOOSEUS_SECTION: WhyChooseUsSection = {
-  title:"Why Kodeframe",
-  subtitle: "Hal-hal yang bikin layanan kami layak dipercaya."
-}
+  title: "Why Kodeframe",
+  subtitle: "Hal-hal yang bikin layanan kami layak dipercaya.",
+};
 
 export const VALUE_PROPS: ValueProps[] = [
   {
@@ -13,7 +13,7 @@ export const VALUE_PROPS: ValueProps[] = [
     title: "Modern Desain",
     description: "Clean layouts. Konsisten dan enak dilihat.",
     color: "from-blue-500 to-cyan-500",
-    position: { x: -5, y: -5 }
+    position: { x: -5, y: -5 },
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const VALUE_PROPS: ValueProps[] = [
     title: "Fast Performance",
     description: "Kode ringan, loading cepat.",
     color: "from-purple-500 to-pink-500",
-    position: { x: 5, y: -5 }
+    position: { x: 5, y: -5 },
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const VALUE_PROPS: ValueProps[] = [
     title: "Scalable Build",
     description: "Struktur modular. Easy to grow.",
     color: "from-green-500 to-emerald-500",
-    position: { x: -5, y: 5 }
+    position: { x: -5, y: 5 },
   },
   {
     id: 4,
@@ -37,12 +37,13 @@ export const VALUE_PROPS: ValueProps[] = [
     title: "Clear Process",
     description: "Tanpa drama, tanpa ribet.",
     color: "from-orange-500 to-red-500",
-    position: { x: 5, y: 5 }
-  }
-]
+    position: { x: 5, y: 5 },
+  },
+];
 
 export const ASSURANCE_PROPS: AssuranceProp = {
   icon: <CheckCircle size={20} />,
   title: "No Surprises, Just Results",
-  description: "Yang Anda dapatkan sesuai dengan yang dijanjikan. Tidak lebih, tidak kurang. Itu komitmen kami."
-}
+  description:
+    "Yang Anda dapatkan sesuai dengan yang dijanjikan. Tidak lebih, tidak kurang. Itu komitmen kami.",
+};

@@ -2,8 +2,8 @@
 
 import { Logo } from "@/components/ui/logo";
 import { NavBar } from "@/components/ui/navbar";
-import { useOverlay } from "@/hooks/useOverlay";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
+import { useOverlay } from "@/hooks/useOverlay";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
@@ -20,10 +20,13 @@ export default function Header() {
       viewport={{ once: true }}
       className="fixed w-full z-50"
     >
-      <div className={`relative mx-auto top-0 p-4 transition-all duration-700 ${isScrolled 
-        ? "max-w-6xl lg:top-6 lg:px-6 lg:py-2.5 bg-tech-navy/50 lg:bg-electric-teal/10 backdrop-blur-md lg:rounded-full" 
-        : "max-w-7xl bg-transparent"
-      }`}>
+      <div
+        className={`relative mx-auto top-0 p-4 transition-all duration-700 ${
+          isScrolled
+            ? "max-w-6xl lg:top-6 lg:px-6 lg:py-2.5 bg-tech-navy/50 lg:bg-electric-teal/10 backdrop-blur-md lg:rounded-full"
+            : "max-w-7xl bg-transparent"
+        }`}
+      >
         <div className="flex items-center justify-between">
           <Logo />
 
@@ -42,10 +45,7 @@ export default function Header() {
         </div>
       </div>
 
-      <MobileMenu 
-        isOpen={mobileMenu.isOpen} 
-        onClose={mobileMenu.close} 
-      />
+      <MobileMenu isOpen={mobileMenu.isOpen} onClose={mobileMenu.close} />
     </motion.header>
   );
 }

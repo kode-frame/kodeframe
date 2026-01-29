@@ -12,7 +12,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -25,18 +25,18 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             <X size={24} />
           </button>
-          
+
           <nav className="text-center space-y-8">
             {NAV_ITEMS.map((item, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, x: -100 }} 
-                animate={{ opacity: 1, x: 0 }} 
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
               >
-                <Link 
-                  href={item.href} 
-                  onClick={onClose} 
+                <Link
+                  href={item.href}
+                  onClick={onClose}
                   className="text-3xl md:text-4xl font-bold text-white hover:text-gray-300 transition-colors"
                 >
                   {item.label}

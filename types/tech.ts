@@ -4,4 +4,4 @@ export interface TechItem {
   color: string;
 }
 
-export type TechList = Record<string, TechItem>
+export type TechList = Record<string, TechItem>;

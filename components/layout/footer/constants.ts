@@ -2,8 +2,9 @@ import { NAV_ITEMS } from "@/constants/navigation";
 import { BottomLink, FooterLink, FooterSection, SocialIcon } from "./types";
 
 export const FOOTER_SECTION: FooterSection = {
-  tagline: "Membangun website profesional & modern untuk mengembangkan bisnis Anda di era digital.",
-  copy: `© ${new Date().getFullYear()} Kodeframe. All rights reserved.`
+  tagline:
+    "Membangun website profesional & modern untuk mengembangkan bisnis Anda di era digital.",
+  copy: `© ${new Date().getFullYear()} Kodeframe. All rights reserved.`,
 };
 
 export const FOOTER_LINK: FooterLink[] = [

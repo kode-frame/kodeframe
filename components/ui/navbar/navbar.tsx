@@ -17,5 +17,5 @@ export function NavBar({ onClose }: NavbarProps) {
         />
       ))}
     </>
-  )
+  );
 }

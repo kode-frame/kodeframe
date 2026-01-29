@@ -10,7 +10,7 @@ interface AnimatedLinesProps {
 
 export function AnimatedLines({
   horizontalCount = 8,
-  verticalCount = 6
+  verticalCount = 6,
 }: AnimatedLinesProps): JSX.Element | null {
   const [mounted, setMounted] = useState(false);
 

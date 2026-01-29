@@ -9,14 +9,19 @@ interface WhyChooseUsItemProps {
   setActiveIndex: (index: number | null) => void;
 }
 
-export function WhyChooseUsItem({ value, index, activeIndex, setActiveIndex }: WhyChooseUsItemProps) {
+export function WhyChooseUsItem({
+  value,
+  index,
+  activeIndex,
+  setActiveIndex,
+}: WhyChooseUsItemProps) {
   const isActive = activeIndex === index;
   const isInactive = activeIndex !== null && activeIndex !== index;
 
   return (
     <motion.div
       key={index}
-      initial={{ opacity:0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseEnter={() => setActiveIndex(index)}
@@ -36,5 +41,5 @@ export function WhyChooseUsItem({ value, index, activeIndex, setActiveIndex }: W
         <WhyChooseUsCard value={value} isActive={isActive} />
       </motion.div>
     </motion.div>
-  )
+  );
 }

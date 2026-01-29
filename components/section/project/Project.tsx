@@ -9,14 +9,19 @@ import { ProjectModal } from "./ProjectModal";
 import { ProjectProps } from "./types";
 
 export default function Project() {
-  const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(
+    null,
+  );
   const overlay = useOverlay();
 
   return (
-    <section id="projects" className="relative w-full min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      className="relative w-full min-h-screen py-20 px-4 sm:px-6 lg:px-8"
+    >
       <div className="relative max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
@@ -29,7 +34,7 @@ export default function Project() {
           </p>
         </motion.div>
 
-        <ProjectGrid 
+        <ProjectGrid
           projects={PROJECTS}
           onSelect={(project) => {
             setSelectedProject(project);

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export function useOverlay(initialOpen = false) {
   const [isOpen, setIsOpen] = useState(initialOpen);
-  
+
   const open = useCallback(() => {
     setIsOpen(true);
     window.history.pushState({ overlay: true }, "");
@@ -60,6 +60,6 @@ export function useOverlay(initialOpen = false) {
     isOpen,
     open,
     close,
-    toggle
+    toggle,
   };
 }

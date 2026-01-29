@@ -1,6 +1,12 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -13,7 +19,10 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card className="group relative pt-0 h-full bg-electric-teal/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-electric-teal/20 hover:border-electric-teal/40 transition-all duration-500">
-      <AspectRatio ratio={16 / 9} className="relative w-full h-full overflow-hidden">
+      <AspectRatio
+        ratio={16 / 9}
+        className="relative w-full h-full overflow-hidden"
+      >
         <Image
           src={project.image}
           alt={project.title}
@@ -37,23 +46,36 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <CardContent>
         <CardDescription>
-          <div className="text-gray-300 text-sm mb-4 leading-relaxed">{project.description}</div>
+          <div className="text-gray-300 text-sm mb-4 leading-relaxed">
+            {project.description}
+          </div>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1}}
-                transition={{ type: "spring", stiffness: 200, damping: 12, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 12,
+                  delay: index * 0.1,
+                }}
               >
-                <Icon key={index} icon={`simple-icons:${tech.icon}`} color={tech.color} />
+                <Icon
+                  key={index}
+                  icon={`simple-icons:${tech.icon}`}
+                  color={tech.color}
+                />
               </motion.div>
             ))}
           </div>
         </CardDescription>
       </CardContent>
-      
-      <div className={`absolute inset-0 bg-linear-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none rounded-3xl`} />
+
+      <div
+        className={`absolute inset-0 bg-linear-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none rounded-3xl`}
+      />
     </Card>
-  )
+  );
 }

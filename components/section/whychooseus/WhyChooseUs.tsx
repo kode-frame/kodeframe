@@ -10,13 +10,16 @@ export default function WhyChooseUs() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="why-choose" className="relative w-full py-24 px-4 md:px-6 lg:px-8">
+    <section
+      id="why-choose"
+      className="relative w-full py-24 px-4 md:px-6 lg:px-8"
+    >
       <div className="absolute inset-0 opacity-50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-size-[40px_40px]" />
       </div>
-      
+
       <div className="relative max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -51,9 +54,7 @@ export default function WhyChooseUs() {
           <Card className="text-center border border-electric-teal/20 bg-transparent rounded-3xl max-w-4xl mx-auto">
             <CardHeader className="flex items-center justify-center space-x-2 text-soft-gray">
               {ASSURANCE_PROPS.icon}
-              <CardTitle>
-                {ASSURANCE_PROPS.title}
-              </CardTitle>
+              <CardTitle>{ASSURANCE_PROPS.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-graphite-black max-w-2xl mx-auto">
